@@ -1,15 +1,17 @@
 return {
     "neovim/nvim-lspconfig",
-    ft = "pyright",
+    ft = "python",
     config = function()
-        require("lspconfig").pyright.setup({
-                settings = {
-                    python = {
-                        analysis = {
-                            typeCheckingMode = "basic",
-                        },
+        vim.lsp.config("pyright", {
+            settings = {
+                python = {
+                    analysis = {
+                        typeCheckingMode = "basic",
                     },
                 },
+            },
         })
+
+        vim.lsp.enable("pyright")
     end
 }
